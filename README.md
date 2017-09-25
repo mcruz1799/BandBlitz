@@ -119,7 +119,7 @@ e) in the private user_params method, allow all attributes except <code>:passwor
     <span class="n">admin</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">"secret"</span>
     <span class="n">admin</span><span class="o">.</span><span class="n">password_confirmation</span> <span class="o">=</span> <span class="s2">"secret"</span>
     <span class="n">admin</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="s2">"admin"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">save!</span>
+    <span class="n">admin</span><span class="o">.</span><span class="n">save</span>
   <span class="k">end</span>
   <span class="k">def</span> <span class="nf">down</span>
     <span class="n">admin</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span> <span class="s2">"admin@example.com"</span>

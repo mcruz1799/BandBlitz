@@ -26,7 +26,7 @@
 <li>
 <p>We are going to be working with a project known as BandBlitz.  This app allows for bands to post information about themselves as well as a small musical sample.  It also allows guests to post comments about the band for others to see.  Unregistered users can read everything, but can only post comments.  If a band manager is made a user, he/she can update the band's information and remove the band from BandBlitz if they so desire.  Regular band members can update the information, but cannot delete the band's entry.  Administrators can do it all – all CRUD operations on both bands and genres and is the only user that can delete a comment left for a band (in case there is libel, obscene remarks, etc.).  Begin by getting the base project code off of github with the following command:</p>
 
-<pre lang="git"><code>  git clone git://github.com/profh/BandBlitz-67272.git
+<pre lang="git"><code>  git clone https://github.com/495-Labs-Projects/BandBlitz-Starter
 </code></pre>
 
 <p>Once you get the code, run <code>bundle install</code> to get the gems such as <a href="https://github.com/CanCanCommunity/cancancan">CanCanCan</a> we will need for this lab.</p>

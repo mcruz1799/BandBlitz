@@ -1,5 +1,6 @@
 <div id="wrapper">
   <section id="content">
+    <div class="titlebar"><span class="mini-icon mini-icon-readme"></span> README.md</div>
   <div class="markdown-body padded">
         <ol>
 <li>

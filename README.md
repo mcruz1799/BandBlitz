@@ -51,12 +51,10 @@
     <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span> <span class="k">if</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span>
   <span class="k">end</span>
   <span class="n">helper_method</span> <span class="ss">:current_user</span>
-
   <span class="k">def</span> <span class="nf">logged_in?</span>
     <span class="n">current_user</span>
   <span class="k">end</span>
   <span class="n">helper_method</span> <span class="ss">:logged_in?</span>
-
   <span class="k">def</span> <span class="nf">check_login</span>
     <span class="n">redirect_to</span> <span class="n">login_url</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="s2">"You need to log in to view this page."</span> <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">nil?</span>
   <span class="k">end</span>
@@ -123,7 +121,6 @@ e) in the private user_params method, allow all attributes except <code>:passwor
     <span class="n">admin</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="s2">"admin"</span>
     <span class="n">admin</span><span class="o">.</span><span class="n">save!</span>
   <span class="k">end</span>
-
   <span class="k">def</span> <span class="nf">down</span>
     <span class="n">admin</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span> <span class="s2">"admin@example.com"</span>
     <span class="no">User</span><span class="o">.</span><span class="n">delete</span> <span class="n">admin</span>

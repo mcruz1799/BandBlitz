@@ -82,21 +82,7 @@ e) in the private user_params method, allow all attributes except <code>:passwor
     <span class="k">end</span>
 
     <span class="k">def</span> <span class="nf">create</span>
-      <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="no">User</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">,</span> <span class="n">params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
-        <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
-        <span class="n">redirect_to</span> <span class="n">home_path</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">"Logged in!"</span>
-      <span class="k">else</span>
-        <span class="n">flash</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">alert</span> <span class="o">=</span> <span class="s2">"Email or password is invalid"</span>
-        <span class="n">render</span> <span class="s2">"new"</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">destroy</span>
-      <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="kp">nil</span>
-      <span class="n">redirect_to</span> <span class="n">home_path</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">"Logged out!"</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
+      
 </pre></div>
 
 <p>Note: if you created the class method earlier in the User model, you could use that instead to rewrite/replace the first two lines of the create action.  This is optional, but it would be a good learning exercise at some point to do this and make sure you have a good grasp of what is happening when creating a user's session.</p>

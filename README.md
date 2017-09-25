@@ -243,11 +243,3 @@ e) in the private user_params method, allow all attributes except <code>:passwor
 <p>If time allows during lab, challenge yourself by extending this project – add the ability of anyone (even guests) to write comments about a particular band.  [This will require a Comment model and appropriate support from views and controllers.] Comments should be displayed only on the band's show details page and place a form for new comments should be there as well.  Comments may be deleted only by an admin.  (You shouldn't even see the option if you are not an admin.)  Again this is optional but an excellent exercise when you have the time, but not essential for today.</p>
   </div>
   
-  <div id="lab_exercises_section">
-  </div>
-  <br><br>
-  <br><br>
-
-
-        </section>
-      </div>

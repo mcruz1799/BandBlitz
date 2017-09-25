@@ -10,7 +10,6 @@ class BandsController < ApplicationController
   # GET /bands/1
   # GET /bands/1.json
   def show
-    set_band
   end
 
   # GET /bands/new
@@ -20,7 +19,6 @@ class BandsController < ApplicationController
 
   # GET /bands/1/edit
   def edit
-    set_band
   end
 
   # POST /bands
@@ -40,7 +38,6 @@ class BandsController < ApplicationController
   # PATCH/PUT /bands/1
   # PATCH/PUT /bands/1.json
   def update
-    set_band
     Band.check_genres(params[:band][:genre_ids])
     if @band.update_attributes(band_params)
       redirect_to(@band, :notice => 'Band was successfully updated.')
@@ -52,7 +49,6 @@ class BandsController < ApplicationController
   # DELETE /bands/1
   # DELETE /bands/1.json
   def destroy
-    set_band
     @band.destroy
   end
 

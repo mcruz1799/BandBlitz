@@ -1,9 +1,28 @@
+<h2 class="titleh">Lab 11: BandBlitz</h2>
+
+<p><strong>Due Date:</strong> April 07</p>
+
+<p>
+  <strong>Objectives</strong>
+  <div class="markdown-body">
+      <ul>
+<li>teach students how to do basic authentication with Rails</li>
+<li>teach students how to authorize different users to take different actions in the system</li>
+<li>reinforce previous lessons in rapidly building apps</li>
+</ul>
+  </div>
+</p>
+
+
+  </section>
+</div>
+
+
 <div id="wrapper">
   <section id="content">
-    <div class="titlebar"><span class="mini-icon mini-icon-readme"></span> README.md</div>
+  <div class="titlebar"><span class="mini-icon mini-icon-readme"></span> README.md</div>
   <div class="markdown-body padded">
         <ol>
-<li>
 <li>
 <p>We are going to be working with a project known as BandBlitz.  This app allows for bands to post information about themselves as well as a small musical sample.  It also allows guests to post comments about the band for others to see.  Unregistered users can read everything, but can only post comments.  If a band manager is made a user, he/she can update the band's information and remove the band from BandBlitz if they so desire.  Regular band members can update the information, but cannot delete the band's entry.  Administrators can do it all – all CRUD operations on both bands and genres and is the only user that can delete a comment left for a band (in case there is libel, obscene remarks, etc.).  Begin by getting the base project code off of github with the following command:</p>
 
@@ -224,3 +243,11 @@ e) in the private user_params method, allow all attributes except <code>:passwor
 <p>If time allows during lab, challenge yourself by extending this project – add the ability of anyone (even guests) to write comments about a particular band.  [This will require a Comment model and appropriate support from views and controllers.] Comments should be displayed only on the band's show details page and place a form for new comments should be there as well.  Comments may be deleted only by an admin.  (You shouldn't even see the option if you are not an admin.)  Again this is optional but an excellent exercise when you have the time, but not essential for today.</p>
   </div>
   
+  <div id="lab_exercises_section">
+  </div>
+  <br><br>
+  <br><br>
+
+
+        </section>
+      </div>

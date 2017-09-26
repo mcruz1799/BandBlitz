@@ -227,7 +227,6 @@ end
     <span class="n">can</span> <span class="ss">:update</span><span class="p">,</span> <span class="no">Band</span> <span class="k">do</span> <span class="o">|</span><span class="n">band</span><span class="o">|</span>  
       <span class="n">band</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">band_id</span>
     <span class="k">end</span>
-  <span class="k">end</span>
 </pre></div>
 
 <p>What this says in each case is that the user (manager or member) has the ability to perform the operation specified on Band objects if the id of the band equals the user's band_id.  Now if you log in as a manager [you'll need to create a band and some genres as well as manager and members], you should see links for editing/deleting the band, but not for others.  Likewise, logging in as a member should show the update functionality for the band is there and working, but others are not.  Get the TA to verify this and mark off the checkpoint.</p>

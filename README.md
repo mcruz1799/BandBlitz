@@ -111,26 +111,29 @@ e) in the private user_params method, allow all attributes except <code>:passwor
 <li>
 <p>Add a default user (admin) to the system using migrations (since all new sign-ups are going to be members only unless an admin is signing them up and chooses a different level).  An example of the up and down methods for this migration are below; create a new migration with <code>rails g migration [NAME]</code> (remove the change method in this new migration):</p>
 
-<div class="highlight highlight-ruby"><pre>  def up
+<div class="highlight highlight-ruby"><pre>  
+  def up
   	adminBand = Band.new
   	adminBand.name = "Admin Band"
   	adminBand.description = "An initial band to create users"
-    adminBand.save
-    admin = User.new
-    admin.first_name = "Admin"
-    admin.last_name = "Admin"
-    admin.email = "admin@example.com"
-    admin.band_id = adminBand.id
-    admin.password = "secret"
-    admin.password_confirmation = "secret"
-    admin.role = "admin"
-    admin.save
+  	adminBand.save
+
+		admin = User.new
+		admin.first_name = "Admin"
+		admin.last_name = "Admin"
+  	admin.email = "admin@example.com"
+  	admin.band_id = adminBand.id
+  	admin.password = "secret"
+  	admin.password_confirmation = "secret"
+  	admin.role = "admin"
+  	admin.save
   end
   def down
-    admin = User.find_by_email "admin@example.com"
-    User.delete admin
-    band = Band.find_by_name "Admin Band"
-    Band.delete band
+  	admin = User.find_by_email "admin@example.com"
+  	User.delete admin
+
+  	band = Band.find_by_name "Admin Band"
+  	Band.delete band
   end
 </pre></div>
 </li>

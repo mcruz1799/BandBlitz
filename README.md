@@ -172,12 +172,12 @@ e) in the private user_params method, allow all attributes except <code>:passwor
 
 <p>The user model needs a method called <code>role?</code> that compares a user's role in the system with the role we are testing for.  So this can all work properly, add the following code to the User model: </p>
 
-<div class="highlight highlight-ruby"><pre>  <span class="no">ROLES</span> <span class="o">=</span> <span class="o">[[</span><span class="s1">'Administrator'</span><span class="p">,</span> <span class="ss">:admin</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="s1">'Band Manager'</span><span class="p">,</span> <span class="ss">:manager</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="s1">'Band Member'</span><span class="p">,</span> <span class="ss">:member</span><span class="o">]]</span>
-
-  <span class="k">def</span> <span class="nf">role?</span><span class="p">(</span><span class="n">authorized_role</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">role</span><span class="o">.</span><span class="n">nil?</span>
-    <span class="n">role</span><span class="o">.</span><span class="n">to_sym</span> <span class="o">==</span> <span class="n">authorized_role</span>
-  <span class="k">end</span>
+<div class="highlight highlight-ruby"><pre>  
+ROLES = [['Administrator', :admin],['Band Manager', :manager],['Band Member', :member]]
+def role?(authorized_role)
+	return false if role.nil?
+	role.to_sym == authorized_role
+end
 </pre></div>
 </li>
 </ol>

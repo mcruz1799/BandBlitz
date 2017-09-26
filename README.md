@@ -111,25 +111,29 @@ e) in the private user_params method, allow all attributes except <code>:passwor
 <li>
 <p>Add a default user (admin) to the system using migrations (since all new sign-ups are going to be members only unless an admin is signing them up and chooses a different level).  An example of the up and down methods for this migration are below; create a new migration with <code>rails g migration [NAME]</code> (remove the change method in this new migration):</p>
 
-<div class="highlight highlight-ruby"><pre>  <span class="k">def</span> <span class="nf">up</span>
-    adminBand = Band.new
+<div class="highlight highlight-ruby"><pre>  def up
+  	adminBand = Band.new
   	adminBand.name = "Admin Band"
   	adminBand.description = "An initial band to create users"
     adminBand.save
-    
-    <span class="n">admin</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="s2">"Admin"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="s2">"Admin"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">"admin@example.com"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">"secret"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">password_confirmation</span> <span class="o">=</span> <span class="s2">"secret"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="s2">"admin"</span>
-    <span class="n">admin</span><span class="o">.</span><span class="n">save</span>
-  <span class="k">end</span>
-  <span class="k">def</span> <span class="nf">down</span>
-    <span class="n">admin</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span> <span class="s2">"admin@example.com"</span>
-    <span class="no">User</span><span class="o">.</span><span class="n">delete</span> <span class="n">admin</span>
-  <span class="k">end</span>
+
+    admin = User.new
+    admin.first_name = "Admin"
+    admin.last_name = "Admin"
+    admin.email = "admin@example.com"
+    admin.band_id = adminBand.id
+    admin.password = "secret"
+    admin.password_confirmation = "secret"
+    admin.role = "admin"
+    admin.save
+  end
+  def down
+    admin = User.find_by_email "admin@example.com"
+    User.delete admin
+
+    band = Band.find_by_name "Admin Band"
+    Band.delete band
+  end
 </pre></div>
 </li>
 <li>

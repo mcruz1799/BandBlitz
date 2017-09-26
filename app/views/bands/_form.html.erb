@@ -1,4 +1,4 @@
-<%= form_with(model: band, local: true) do |form| %>
+<%= form_with(model: band, local: true, :html => { :multipart => true }) do |form| %>
   <% if band.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(band.errors.count, "error") %> prohibited this band from being saved:</h2>
@@ -41,12 +41,12 @@
 
   <div class="field">
     <%= form.label :photo %>
-    <%= form.text_field :photo, id: :band_photo %>
+    <%= form.file_field :photo, id: :band_photo %>
   </div>
 
   <div class="field">
     <%= form.label :song %>
-    <%= form.text_field :song, id: :band_song %>
+    <%= form.file_field :song, id: :band_song %>
   </div>
 
   <div class="actions">

@@ -117,10 +117,9 @@ e) in the private user_params method, allow all attributes except <code>:passwor
   	adminBand.name = "Admin Band"
   	adminBand.description = "An initial band to create users"
   	adminBand.save
-
-		admin = User.new
-		admin.first_name = "Admin"
-		admin.last_name = "Admin"
+	admin = User.new
+	admin.first_name = "Admin"
+	admin.last_name = "Admin"
   	admin.email = "admin@example.com"
   	admin.band_id = adminBand.id
   	admin.password = "secret"
@@ -131,7 +130,6 @@ e) in the private user_params method, allow all attributes except <code>:passwor
   def down
   	admin = User.find_by_email "admin@example.com"
   	User.delete admin
-
   	band = Band.find_by_name "Admin Band"
   	Band.delete band
   end

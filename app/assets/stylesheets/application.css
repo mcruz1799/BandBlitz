@@ -78,7 +78,7 @@ h2 {
   margin-top: 20px;
 }
 
-#flash_notice, #flash_error {
+#flash_notice, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
 }
@@ -88,7 +88,7 @@ h2 {
   border: solid 1px #6C6;
 }
 
-#flash_error {
+#flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
 }

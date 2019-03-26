@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/edit'
+
+  get 'users/create'
+
+  get 'users/update'
+
   resources :genres
   resources :bands
   resources :band_genres

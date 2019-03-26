@@ -4,6 +4,7 @@ class Band < ApplicationRecord
   # relationships
   has_many :band_genres
   has_many :genres, :through => :band_genres
+  has_many :users
   # has_many :comments, :dependent => :destroy
 
   # scopes

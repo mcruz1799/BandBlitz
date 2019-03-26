@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925172344) do
+ActiveRecord::Schema.define(version: 20190325235145) do
 
   create_table "band_genres", force: :cascade do |t|
     t.integer "band_id"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20170925172344) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "role", default: "member"
+    t.string "password_digest"
+    t.integer "band_id"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

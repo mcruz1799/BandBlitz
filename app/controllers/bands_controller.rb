@@ -1,6 +1,6 @@
 class BandsController < ApplicationController
   before_action :set_band, only: [:show, :edit, :update, :destroy]
-  before_action :check_login, only: [:new, :edit, :update, :destroy]
+  #before_action :check_login, only: [:new, :edit, :update, :destroy]
 
   # GET /bands
   # GET /bands.json
@@ -15,16 +15,19 @@ class BandsController < ApplicationController
 
   # GET /bands/new
   def new
+    authorize! :new, @band
     @band = Band.new
   end
 
   # GET /bands/1/edit
   def edit
+    authorize! :update, @band
   end
 
   # POST /bands
   # POST /bands.json
   def create
+    authorize! :new, @band
     params[:band][:genre_ids] ? genres = params[:band][:genre_ids] : genres = Array.new
     @band = Band.new(band_params) if Band.check_genres(genres)
 
@@ -39,6 +42,7 @@ class BandsController < ApplicationController
   # PATCH/PUT /bands/1
   # PATCH/PUT /bands/1.json
   def update
+    authorize! :update, @band
     Band.check_genres(params[:band][:genre_ids])
     if @band.update_attributes(band_params)
       redirect_to(@band, :notice => 'Band was successfully updated.')
@@ -50,6 +54,7 @@ class BandsController < ApplicationController
   # DELETE /bands/1
   # DELETE /bands/1.json
   def destroy
+    authorize! :destroy, @band
     @band.destroy
   end
 

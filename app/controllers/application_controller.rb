@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   private
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Go away or I shall taunt you a second time."
+    redirect_to home_path
+  end
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
